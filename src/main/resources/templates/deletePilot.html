@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Hapus Pustakawan</title>
+	<object th:include="fragments/fragment :: css" th:remove="tag"></object>
+	<object th:include="fragments/fragment :: js" th:remove="tag"></object>
+</head>
+
+<body>
+	<nav th:replace="fragments/fragment :: navbar"></nav>
+	    <br>
+	    <div class="container-fluid">	      
+	        <div class="row">
+	            <div class="col-md-4">
+	            	 <div class="card">
+	            	 
+	                    <div class="card-body"> 
+	                    	<div class="form-group">
+						      <div class="alert alert-danger" role="alert">
+						      	<center><h4><b>Hapus Data?</b></h4></center>
+						      	</div>
+						      <form th:action="@{/pilot/delete/{licenseNumber}(licenseNumber=${pilot.licenseNumber})}" th:object="${pilot}" method="POST">
+						      	<b>License Number:</b><br>
+								<input class="form-control" type="text" th:field="*{licenseNumber}" name="licenseNumber" readonly>
+								<b>Name:</b><br>
+								<input class="form-control" type="text" th:field="*{name}" name="name" readonly>
+								<b>Fly Hour:</b><br>
+								<input class="form-control" type="number" th:field="*{flyHour}" name="flyHour" readonly>
+								<br><br>	
+	                           <td style="padding: 10px;">
+								<button type="submit" class="btn btn-danger" name="submit">Hapus</button>
+								</td>
+	                            <br>
+	                            </form>
+							</div>
+	                     </div>
+                	</div>		        
+	            </div>
+	            <div class="col-md-4"></div>
+	        </div>        
+	    </div>
+
+</body>
+</html>
