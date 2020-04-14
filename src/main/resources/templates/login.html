@@ -21,6 +21,7 @@
                         <div th:if="${param.error}">
                             <span style="color: red">Invalid username or password</span>
                         </div>
+                        <br>
                         <form th:action="@{/login}" method="POST">
                             <div class="row form-group">
                                 <label class="col-sm-4">Username:</label>

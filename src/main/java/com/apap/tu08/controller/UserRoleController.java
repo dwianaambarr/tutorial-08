@@ -33,23 +33,23 @@ public class UserRoleController {
 	private String updatePasswordSubmit(String oldPassword, String newPassword, String confirmPassword, Model model) {
 		UserRoleModel user = userService.getUser(SecurityContextHolder.getContext().getAuthentication().getName());
 		
-		if(newPassword.equals(confirmPassword)) {
-			
+		if(newPassword.equals(confirmPassword)) {			
 			if(userService.matchPassword(oldPassword, user.getPassword())) {
+				if(newPassword.equals(oldPassword)) {
+					model.addAttribute("message", "Password baru sama dengan password lama!");
+					return "update-password";
+				} else {
 				user.setPassword(newPassword);
-				userService.addUser(user);
-				
-				model.addAttribute("message", "Password " + user.getUsername() + " berhasil diubah");
+				userService.addUser(user);		
+				model.addAttribute("message", "Password " + user.getUsername() + " berhasil diubah!");
 				return "update-password-success";
-			}
-			
-			else {
-				model.addAttribute("message", "Password lama salah");
+				}
+			} else {
+				model.addAttribute("message", "Password lama salah!");
 				return "update-password";
 			}	
-		}
-		else {
-			model.addAttribute("message", "Password tidak sesuai");
+		} else {
+			model.addAttribute("message", "Konfirmasi password tidak sesuai!");
 			return "update-password";
 		}
 	}
