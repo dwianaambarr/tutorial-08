@@ -24,18 +24,18 @@
                     <div class="card-body">
                         <form th:action="@{/user/addUser}" method="post">
                          	<div class="row form-group">
-                         		<label class="col-sm-4">User Name :</label>
+                         		<label class="col-sm-4">User Name:</label>
                          		<input class="col-sm-8 form-control input-sm" type="text" name="username"/>
                          	</div>
                          	<!-- Latihan 3 -->
                          	<div class="row form-group">
-                         		<label class="col-sm-4">Password :</label>
+                         		<label class="col-sm-4">Password:</label>
                          		<input class="col-sm-8 form-control input-sm" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
                     			title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" 
                     			required type="password" name="password"/>
                          	</div>
                          	<div class="row form-group">
-                         		<label class="col-sm-4">Role :</label>
+                         		<label class="col-sm-4">Role:</label>
                          		<input class="col-sm-8 form-control input-sm" type="text" name="role"/>
                          	</div>
                          	<div>
